@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-taxform-heading">Create or edit a Taxform</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!taxform.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="taxform.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_coe_rcpnt_id">Coe Rcpnt Id</label>
+                    <input type="number" class="form-control" name="coe_rcpnt_id" id="field_coe_rcpnt_id"
+                        [(ngModel)]="taxform.coe_rcpnt_id" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sor_rcpnt_id">Sor Rcpnt Id</label>
+                    <input type="text" class="form-control" name="sor_rcpnt_id" id="field_sor_rcpnt_id"
+                        [(ngModel)]="taxform.sor_rcpnt_id" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lob_id">Lob Id</label>
+                    <input type="number" class="form-control" name="lob_id" id="field_lob_id"
+                        [(ngModel)]="taxform.lob_id" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sor_id">Sor Id</label>
+                    <input type="number" class="form-control" name="sor_id" id="field_sor_id"
+                        [(ngModel)]="taxform.sor_id" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sub_lob_id">Sub Lob Id</label>
+                    <input type="number" class="form-control" name="sub_lob_id" id="field_sub_lob_id"
+                        [(ngModel)]="taxform.sub_lob_id" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_form_type">Form Type</label>
+                    <input type="number" class="form-control" name="form_type" id="field_form_type"
+                        [(ngModel)]="taxform.form_type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_form_effective_dt">Form Effective Dt</label>
+                    <div class="input-group">
+                        <input id="field_form_effective_dt" type="text" class="form-control" name="form_effective_dt" ngbDatepicker  #form_effective_dtDp="ngbDatepicker" [(ngModel)]="taxform.form_effective_dt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="form_effective_dtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_affidavit_dt">Affidavit Dt</label>
+                    <div class="input-group">
+                        <input id="field_affidavit_dt" type="text" class="form-control" name="affidavit_dt" ngbDatepicker  #affidavit_dtDp="ngbDatepicker" [(ngModel)]="taxform.affidavit_dt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="affidavit_dtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_recipient">Recipient</label>
+                    <select class="form-control" id="field_recipient" name="recipient" [(ngModel)]="taxform.recipient" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recipientOption.id === taxform.recipient?.id ? taxform.recipient : recipientOption" *ngFor="let recipientOption of recipients; trackBy: trackRecipientById">{{recipientOption.sor_rcpnt_id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

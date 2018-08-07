@@ -1,0 +1,34 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.wellsfargo.taxie.recipienthelper"
+    },
+    "jhipsterVersion": "5.0.1",
+    "applicationType": "microservice",
+    "baseName": "recipienthelper",
+    "packageName": "com.wellsfargo.taxie.recipienthelper",
+    "packageFolder": "com/wellsfargo/taxie/recipienthelper",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "2afa8f39d94095f9bb6f6949587e273ffebbe6e4",
+    "enableTranslation": false,
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "clientPackageManager": "yarn",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

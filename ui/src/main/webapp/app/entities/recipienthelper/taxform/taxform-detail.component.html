@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taxform">
+            <h2><span>Taxform</span> {{taxform.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Coe Rcpnt Id</span></dt>
+                <dd>
+                    <span>{{taxform.coe_rcpnt_id}}</span>
+                </dd>
+                <dt><span>Sor Rcpnt Id</span></dt>
+                <dd>
+                    <span>{{taxform.sor_rcpnt_id}}</span>
+                </dd>
+                <dt><span>Lob Id</span></dt>
+                <dd>
+                    <span>{{taxform.lob_id}}</span>
+                </dd>
+                <dt><span>Sor Id</span></dt>
+                <dd>
+                    <span>{{taxform.sor_id}}</span>
+                </dd>
+                <dt><span>Sub Lob Id</span></dt>
+                <dd>
+                    <span>{{taxform.sub_lob_id}}</span>
+                </dd>
+                <dt><span>Form Type</span></dt>
+                <dd>
+                    <span>{{taxform.form_type}}</span>
+                </dd>
+                <dt><span>Form Effective Dt</span></dt>
+                <dd>
+                    <span>{{taxform.form_effective_dt}}</span>
+                </dd>
+                <dt><span>Affidavit Dt</span></dt>
+                <dd>
+                    <span>{{taxform.affidavit_dt}}</span>
+                </dd>
+                <dt><span>Recipient</span></dt>
+                <dd>
+                    <div *ngIf="taxform.recipient">
+                        <a [routerLink]="['/recipient', taxform.recipient?.id, 'view']">{{taxform.recipient?.sor_rcpnt_id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/taxform', taxform.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

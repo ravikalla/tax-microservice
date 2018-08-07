@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="recipient">
+            <h2><span>Recipient</span> {{recipient.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Rec Src</span></dt>
+                <dd>
+                    <span>{{recipient.rec_src}}</span>
+                </dd>
+                <dt><span>Lob Id</span></dt>
+                <dd>
+                    <span>{{recipient.lob_id}}</span>
+                </dd>
+                <dt><span>Sor Id</span></dt>
+                <dd>
+                    <span>{{recipient.sor_id}}</span>
+                </dd>
+                <dt><span>Sub Lob Id</span></dt>
+                <dd>
+                    <span>{{recipient.sub_lob_id}}</span>
+                </dd>
+                <dt><span>Sor Rcpnt Id</span></dt>
+                <dd>
+                    <span>{{recipient.sor_rcpnt_id}}</span>
+                </dd>
+                <dt><span>Rcpnt Type</span></dt>
+                <dd>
+                    <span>{{recipient.rcpnt_type}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/recipient', recipient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

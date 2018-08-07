@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "recipient",
+            "otherEntityName": "recipient",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "sor_rcpnt_id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "coe_rcpnt_id",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sor_rcpnt_id",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lob_id",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sor_id",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sub_lob_id",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "form_type",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "form_effective_dt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "affidavit_dt",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180806174146",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "taxform",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "recipienthelper"
+}
