@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="wfexecution">
+            <h2><span>Wfexecution</span> {{wfexecution.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Bpm Instance Id</span></dt>
+                <dd>
+                    <span>{{wfexecution.bpm_instance_id}}</span>
+                </dd>
+                <dt><span>Bpm Wrkfl Task Id</span></dt>
+                <dd>
+                    <span>{{wfexecution.bpm_wrkfl_task_id}}</span>
+                </dd>
+                <dt><span>Key Value</span></dt>
+                <dd>
+                    <span>{{wfexecution.key_value}}</span>
+                </dd>
+                <dt><span>Sla</span></dt>
+                <dd>
+                    <span>{{wfexecution.sla}}</span>
+                </dd>
+                <dt><span>Wfrequest</span></dt>
+                <dd>
+                    <div *ngIf="wfexecution.wfrequestId">
+                        <a [routerLink]="['/wfrequest', wfexecution.wfrequestId, 'view']">{{wfexecution.wfrequestWrkfl_execution_id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/wfexecution', wfexecution.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

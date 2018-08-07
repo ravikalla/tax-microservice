@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-wfrequest-heading">Create or edit a Wfrequest</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!wfrequest.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="wfrequest.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_coe_rcpnt_id">Coe Rcpnt Id</label>
+                    <input type="number" class="form-control" name="coe_rcpnt_id" id="field_coe_rcpnt_id"
+                        [(ngModel)]="wfrequest.coe_rcpnt_id" required/>
+                    <div [hidden]="!(editForm.controls.coe_rcpnt_id?.dirty && editForm.controls.coe_rcpnt_id?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.coe_rcpnt_id?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.coe_rcpnt_id?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_wrkfl_execution_id">Wrkfl Execution Id</label>
+                    <input type="number" class="form-control" name="wrkfl_execution_id" id="field_wrkfl_execution_id"
+                        [(ngModel)]="wfrequest.wrkfl_execution_id" required/>
+                    <div [hidden]="!(editForm.controls.wrkfl_execution_id?.dirty && editForm.controls.wrkfl_execution_id?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.wrkfl_execution_id?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.wrkfl_execution_id?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_current_task_id">Current Task Id</label>
+                    <input type="number" class="form-control" name="current_task_id" id="field_current_task_id"
+                        [(ngModel)]="wfrequest.current_task_id" required/>
+                    <div [hidden]="!(editForm.controls.current_task_id?.dirty && editForm.controls.current_task_id?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.current_task_id?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.current_task_id?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_current_task_stat">Current Task Stat</label>
+                    <input type="number" class="form-control" name="current_task_stat" id="field_current_task_stat"
+                        [(ngModel)]="wfrequest.current_task_stat" required/>
+                    <div [hidden]="!(editForm.controls.current_task_stat?.dirty && editForm.controls.current_task_stat?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.current_task_stat?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.current_task_stat?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_request_stat">Request Stat</label>
+                    <input type="number" class="form-control" name="request_stat" id="field_request_stat"
+                        [(ngModel)]="wfrequest.request_stat" required/>
+                    <div [hidden]="!(editForm.controls.request_stat?.dirty && editForm.controls.request_stat?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.request_stat?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.request_stat?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_start_dt">Start Dt</label>
+                    <div class="input-group">
+                        <input id="field_start_dt" type="text" class="form-control" name="start_dt" ngbDatepicker  #start_dtDp="ngbDatepicker" [(ngModel)]="wfrequest.start_dt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="start_dtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_end_dt">End Dt</label>
+                    <div class="input-group">
+                        <input id="field_end_dt" type="text" class="form-control" name="end_dt" ngbDatepicker  #end_dtDp="ngbDatepicker" [(ngModel)]="wfrequest.end_dt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="end_dtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="wfrequest">
+            <h2><span>Wfrequest</span> {{wfrequest.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Coe Rcpnt Id</span></dt>
+                <dd>
+                    <span>{{wfrequest.coe_rcpnt_id}}</span>
+                </dd>
+                <dt><span>Wrkfl Execution Id</span></dt>
+                <dd>
+                    <span>{{wfrequest.wrkfl_execution_id}}</span>
+                </dd>
+                <dt><span>Current Task Id</span></dt>
+                <dd>
+                    <span>{{wfrequest.current_task_id}}</span>
+                </dd>
+                <dt><span>Current Task Stat</span></dt>
+                <dd>
+                    <span>{{wfrequest.current_task_stat}}</span>
+                </dd>
+                <dt><span>Request Stat</span></dt>
+                <dd>
+                    <span>{{wfrequest.request_stat}}</span>
+                </dd>
+                <dt><span>Start Dt</span></dt>
+                <dd>
+                    <span>{{wfrequest.start_dt}}</span>
+                </dd>
+                <dt><span>End Dt</span></dt>
+                <dd>
+                    <span>{{wfrequest.end_dt}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/wfrequest', wfrequest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

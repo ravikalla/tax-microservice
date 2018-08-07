@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "wfrequest",
+            "otherEntityName": "wfrequest",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "wrkfl_execution_id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "bpm_instance_id",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "bpm_wrkfl_task_id",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "key_value",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sla",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180807180726",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "wfexecution",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "microserviceName": "wftfv"
+}
