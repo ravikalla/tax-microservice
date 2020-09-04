@@ -88,7 +88,7 @@
     "typescript": "2.7.2",
     "thread-loader": "1.1.5",
     "sass-loader": "6.0.6",
-    "node-sass": "4.5.3",
+    "node-sass": "4.13.1",
     "postcss-loader": "2.0.9",
     "xml2js": "0.4.17",
     "uglifyjs-webpack-plugin": "1.2.3",
